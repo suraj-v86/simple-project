@@ -1,10 +1,31 @@
 pipeline {
     agent any 
+    
+    environment {
+        GIT_TOKEN = credentials('credentials')
+        SONARQUBE = 'SonarQube'
+    }
 
     stages{
         stage('Checkout SCM') {
             steps {
-                git branch: 'main', url: 'https://github.com/suraj-v86/simple-project.git'
+                script {
+
+                    sh 'git clone https://$GIT_TOKEN/simple-project.git'
+
+                }
+                
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps{
+                script {
+                    // Run SonarQube analysis on the code
+                    withSonarQubeEnv(SONARQUBE) {
+                        sh 'mvn clean verify sonar:sonar'
+                    }
+                }
             }
         }
 
