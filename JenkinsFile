@@ -16,6 +16,7 @@ pipeline {
 
         stage('Test') {
             steps {
+                sh 'chmod +x hello-world.sh'
                 sh './hello-world.sh'
             }
         }
