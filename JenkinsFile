@@ -2,9 +2,9 @@ pipeline {
     agent any 
 
     stages{
-        stage('Clone Repository') {
+        stage('Checkout SCM') {
             steps {
-                git 'https://github.com/suraj-v86/simple-project.git'
+                git branch: 'main', url: 'https://github.com/suraj-v86/simple-project.git'
             }
         }
 
