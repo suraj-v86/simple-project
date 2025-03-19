@@ -19,7 +19,7 @@ pipeline {
                 sh 'pwd' 
                 sh 'ls -l'
                 sh 'chmod +x hello-world.sh'
-                sh './hello-world.sh'
+                sh '/bin/bash /var/lib/jenkins/workspace/Hello-World/hello-world.sh'
             }
         }
 
