@@ -1,0 +1,6 @@
+ami = "ami-04b4f1a9cf54c11d0"
+instance_type = "t2.medium"
+key = "cicd"
+vpc = "vpc-0836f2e83dca656a2"
+subnet = "subnet-08080976f5e1ddee1"
+sg = "sg-078a5f19ead855fc7"

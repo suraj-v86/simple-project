@@ -1,0 +1,29 @@
+pipeline {
+    agent any 
+
+    stages{
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/suraj-v86/simple-project.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh './hello-world.sh'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deployment Successfull'
+            }
+        }
+    }
+}
